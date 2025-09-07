@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content [formGroup]="form">
+
+<!--  <mat-form-field>-->
+<!--    <mat-label>Play title</mat-label>-->
+<!--    <input matInput formControlName="performance">-->
+<!--    <mat-error *ngIf="performanceValidation['performance'].touched && performanceValidation['performance'].errors" class="error">-->
+<!--      <span *ngIf="performanceValidation['performance'].errors['required']">Play title is required</span>-->
+<!--    </mat-error>-->
+<!--  </mat-form-field>-->
+
+  <mat-form-field >
+    <mat-label>Play title</mat-label>
+    <mat-select formControlName="performance">
+      <mat-option *ngFor="let performance of performanceList$ | async" [value]="performance._id">
+        {{ performance.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Role</mat-label>
+    <input matInput formControlName="role">
+    <mat-error *ngIf="contractValidation['role'].touched && contractValidation['role'].errors" class="error">
+      <span *ngIf="contractValidation['role'].errors['required']">Role is required</span>
+      <span *ngIf="contractValidation['role'].errors['min']">Role should be at least 3 characters</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Salary</mat-label>
+    <input matInput formControlName="salary">
+    <mat-error *ngIf="contractValidation['salary'].touched && contractValidation['salary'].errors" class="error">
+      <span *ngIf="contractValidation['salary'].errors['required']">Salary is required</span>
+      <span *ngIf="contractValidation['salary'].errors['min']">Salary should be at least 3 characters</span>
+    </mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button btn-close" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary btn-create" (click)="save()">{{ buttonName }}</button>
+</mat-dialog-actions>
+

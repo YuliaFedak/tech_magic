@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Welcome to the Actors' Contract Management System!</h1>
+  <p>Manage and track all your actors' contracts efficiently and securely.</p>
+  <div *ngIf="!isLoggedIn">
+    <button (click)="navigateToLogIn()">Log in</button>
+    <button (click)="navigateToSignUp()">Sign up</button>
+  </div>
+  <div *ngIf="isLoggedIn">
+    <button (click)="logOut()">Log out</button>
+  </div>
+</div>
+

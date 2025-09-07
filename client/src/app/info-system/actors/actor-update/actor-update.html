@@ -1,0 +1,50 @@
+<div *ngIf="actor$ | async as actor" class="update-actor">
+  <h1>Update actor</h1>
+
+  <form [formGroup]="actorForm" (ngSubmit)="onSubmit()">
+
+    <div class="update-actor-label-input">
+        <label for="last_name" >Last name</label>
+        <input type="text" id="last_name" formControlName="last_name">
+        <div *ngIf="actorValidation['last_name'].touched && actorValidation['last_name'].errors" class="error">
+          <div *ngIf="actorValidation['last_name'].errors['required']">Last name is required</div>
+          <div *ngIf="actorValidation['last_name'].errors['minlength']">Last name should be at least 3 cherecters</div>
+        </div>
+    </div>
+
+    <div class="update-actor-label-input">
+      <label for="first_name">First name</label>
+      <input type="text" id="first_name" formControlName="first_name">
+      <div *ngIf="actorValidation['first_name'].touched && actorValidation['first_name'].errors" class="error">
+        <div *ngIf="actorValidation['first_name'].errors['required']">First name is required</div>
+        <div *ngIf="actorValidation['first_name'].errors['minlength']">First name should be at least 3 cherecters</div>
+      </div>
+    </div>
+
+    <div class="update-actor-label-input">
+      <label for="middle_name">Middle name</label>
+      <input type="text" id="middle_name" formControlName="middle_name">
+      <div *ngIf="actorValidation['middle_name'].touched && actorValidation['middle_name'].errors" class="error">
+        <div *ngIf="actorValidation['middle_name'].errors['required']">Middle name is required</div>
+        <div *ngIf="actorValidation['middle_name'].errors['minlength']">Middle name should be at least 3 cherecters</div>
+      </div>
+    </div>
+
+    <div class="update-actor-label-input">
+      <label for="rank">Rank</label>
+      <input type="text" id="rank" formControlName="rank">
+      <div *ngIf="actorValidation['rank'].touched && actorValidation['rank'].errors" class="error">
+        <div *ngIf="actorValidation['rank'].errors['minlength']">Rack should be at least 3 cherecters</div>
+      </div>
+    </div>
+
+    <div class="update-actor-label-input">
+      <label for="experience">Experience</label>
+      <input type="number" id="experience" formControlName="experience">
+    </div>
+    <div>
+      <button type="submit" class="button-submit">Save</button>
+      <button class="button-back" (click)="goBack()" >Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>{{title}}</h2>
+
+<mat-dialog-content [formGroup]="form">
+
+  <mat-form-field>
+    <mat-label>Play title</mat-label>
+    <input matInput formControlName="name">
+    <mat-error *ngIf="performanceValidation['name'].touched && performanceValidation['name'].errors" class="error">
+      <span *ngIf="performanceValidation['name'].errors['required']">Play title is required</span>
+      <span *ngIf="performanceValidation['name'].errors['minlength']">Play title should be at least 5 cherecters</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field >
+    <mat-label>Year</mat-label>
+    <mat-select formControlName="year">
+      <mat-option *ngFor="let i of listOfYears" [value]="i">
+        {{ i }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Budget</mat-label>
+    <input matInput formControlName="budget">
+    <mat-error *ngIf="performanceValidation['budget'].touched && performanceValidation['budget'].errors" class="error">
+      <span *ngIf="performanceValidation['budget'].errors['required']">Budget is required</span>
+      <span *ngIf="performanceValidation['budget'].errors['min']">Budget should be at least 0</span>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Actors</mat-label>
+    <mat-select formControlName="actors" multiple>
+      <mat-option *ngFor="let actor of actorList$ | async" [value]="actor._id">
+        {{ actor.last_name }} {{ actor.first_name }} {{ actor.middle_name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button btn-close" (click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary btn-create" (click)="save()">{{ buttonName }}</button>
+</mat-dialog-actions>

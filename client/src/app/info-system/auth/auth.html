@@ -1,0 +1,105 @@
+<div class="container">
+
+
+    <h1>{{ isLogin ? "Log in " : "Sign up"}}</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group" *ngIf="!isLogin">
+      <div class="auth-label-input">
+        <label for="username">Username</label>
+        <input type="text" id="username" formControlName="username" />
+        <div *ngIf="authValidation['username'].touched && authValidation['username'].errors" class="error">
+          <div *ngIf="authValidation['username'].errors['required']">Username is required</div>
+          <div *ngIf="authValidation['username'].errors['minlength']">Username should be at least 3 characters</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <div class="form-controller">
+        <div class="auth-label-input">
+          <label for="email">Email</label>
+          <input id="email" type="email" formControlName="email">
+          <div *ngIf="authValidation['email'].touched && authValidation['email'].errors" class="error">
+            <div *ngIf="authValidation['email'].errors['required']">Email is required</div>
+            <div *ngIf="authValidation['email'].errors['email']">Email is not valid</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="auth-label-input">
+          <label for="password">Password</label>
+          <input id="password" type="password" formControlName="password">
+          <div *ngIf="authValidation['password'].touched && authValidation['password'].errors" class="error">
+            <div *ngIf="authValidation['password'].errors['required']">Password is required</div>
+            <div *ngIf="authValidation['password'].errors['minlength']">Password should be at least 8 characters</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <div class="form-group" *ngIf="!isLogin" formGroupName="actor">
+        <div class="form-controller">
+          <div class="auth-label-input">
+            <label for="last_name">Last name</label>
+            <input id="last_name" type="text" formControlName="last_name">
+            <div *ngIf="actorValidation['last_name'].touched && actorValidation['last_name'].errors" class="error">
+              <div *ngIf="actorValidation['last_name'].errors['required']">Last name is required</div>
+              <div *ngIf="actorValidation['last_name'].errors['minlength']">Last name should be at least 3 characters</div>
+            </div>
+          </div>
+        </div>
+
+      <div class="form-controller">
+        <div class="auth-label-input">
+          <label for="first_name">First name</label>
+          <input id="first_name" type="text" formControlName="first_name">
+          <div *ngIf="actorValidation['first_name'].touched && actorValidation['first_name'].errors" class="error">
+            <div *ngIf="actorValidation['first_name'].errors['required']">First name is required</div>
+            <div *ngIf="actorValidation['first_name'].errors['minlength']">First name should be at least 3 characters</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-controller">
+        <div class="auth-label-input">
+          <label for="middle_name">Middle name</label>
+          <input id="middle_name" type="text" formControlName="middle_name">
+          <div *ngIf="actorValidation['middle_name'].touched && actorValidation['middle_name'].errors" class="error">
+            <div *ngIf="actorValidation['middle_name'].errors['required']">Middle name is required</div>
+            <div *ngIf="actorValidation['middle_name'].errors['minlength']">Middle name should be at least 3 characters</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-controller">
+        <div class="auth-label-input">
+          <label for="rank">Rank</label>
+          <input id="rank" type="text" formControlName="rank">
+          <div *ngIf="actorValidation['rank'].touched && actorValidation['rank'].errors" class="error">
+            <div *ngIf="actorValidation['rank'].errors['minlength']">Rank should be at least 3 characters</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-controller">
+        <div class="auth-label-input">
+          <label for="experience">Experience</label>
+          <input id="experience" type="number" formControlName="experience">
+          <div *ngIf="actorValidation['experience'].touched && actorValidation['experience'].errors" class="error">
+            <div *ngIf="actorValidation['experience'].errors['min']">Experience be at least 0</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="btn">
+      <button class="btn-go-back" type="button" (click)="navigateToAnotherAuth()">{{ isLogin? "Go to sign up" :  "Go to log in"}}</button>
+      <button class="btn-auth" type="submit">{{ isLogin? "Log in" :  "Sign up"}}</button>
+    </div>
+    </form>
+
+</div>

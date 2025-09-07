@@ -1,0 +1,31 @@
+.create-button {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 20px auto 0 auto;
+  .year-filter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    label {
+      font-size: larger;
+    }
+    select {
+      padding: 8px 12px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+
+      &:hover {
+        border-color: #888;
+      }
+    }
+  }
+}
+
+

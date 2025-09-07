@@ -1,0 +1,11 @@
+<h2 mat-dialog-title class="dialog-title">{{title}}</h2>
+
+<mat-dialog-content >
+
+{{description}}
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button btn-close"(click)="close()">Close</button>
+  <button class="mat-raised-button mat-primary btn-delete"(click)="save()">Delete</button>
+</mat-dialog-actions>

@@ -1,0 +1,33 @@
+.dialog-title  {
+  font-size: larger;
+}
+
+mat-dialog-content {
+  font-family: sans-serif;
+}
+
+mat-dialog-actions {
+  button {
+    padding: 10px 45px;
+    font-size: medium;
+    border: none;
+    color: white;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+
+  .btn-delete {
+    background-color: red;
+  }
+  .btn-delete:hover {
+    background-color: #db0000;
+  }
+
+  .btn-close {
+    background-color: #3c5ee7;;
+  }
+  .btn-close:hover {
+    background-color: #0f3ae7;
+  }
+}

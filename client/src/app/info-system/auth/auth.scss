@@ -1,0 +1,80 @@
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+  h1 {
+    text-align: center;
+  }
+
+  form {
+    .form-group {
+      .auth-label-input {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 12px;
+      }
+      label {
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: #555;
+      }
+
+      input {
+        padding: 10px 15px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+
+        &:focus {
+          border-color: #3f51b5;
+          box-shadow: 0 0 0 3px rgba(63,81,181,0.1);
+          outline: none;
+        }
+      }
+
+      .error {
+        color: red;
+        font-size: 13px;
+        margin-bottom: 10px;
+        width: 70%;
+        text-align: left;
+        min-height: 18px;
+      }
+    }
+  }
+  .btn {
+    display: flex;
+    justify-content: end;
+    margin-top: 35px;
+
+    button {
+      padding: 12px 20px;
+      margin-right: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      background-color: #3c5ee7;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #3f51b5;
+    }
+  }
+}
+
+::ng-deep .custom-snackbar-invalid-form {
+  background-color: red !important;
+}
+
+::ng-deep .custom-snackbar {
+  background-color: green !important;
+}
+
+
+

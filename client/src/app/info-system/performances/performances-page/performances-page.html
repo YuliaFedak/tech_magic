@@ -1,0 +1,45 @@
+<div class="create-button">
+  <div class="year-filter">
+    <label for="year">Select year:</label>
+    <select id="year" [(ngModel)]="year" (ngModelChange)="onYearChange($event)">
+      <option *ngFor="let year of listOfYears" [value]="year">{{ year }}</option>
+    </select>
+  </div>
+  <button (click)="createPerformanceDialog()" *ngIf="authApi.isAdmin()">Create new performance</button>
+</div>
+<div *ngIf="loading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<table *ngIf="!loading && (performanceList$ | async) as plays">
+  <thead>
+  <tr>
+    <th>Play title</th>
+    <th>Budget</th>
+    <th>List of actors</th>
+    <th *ngIf="authApi.isAdmin()"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let play of plays ">
+    <td>{{ play.name }}</td>
+    <td>{{ play.budget}}</td>
+    <td >
+      <ul>
+        <li *ngFor="let actor of play.actors">{{ actor.last_name}} {{actor.first_name}} {{actor.middle_name}}</li>
+      </ul>
+    </td>
+    <td *ngIf="authApi.isAdmin()" class="td-button">
+      <button class="update-button" (click)="updatePerformanceDialog(play._id, play)">Update</button>
+      <button class="delete-button" (click)="deletePerformanceDialog(play._id, play.name)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<mat-paginator
+  class="custom-paginator"
+  [length]="total"
+  [pageSize]="limit"
+  (page)="onPageChange($event)">
+</mat-paginator>

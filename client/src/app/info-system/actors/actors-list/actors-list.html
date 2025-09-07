@@ -1,0 +1,39 @@
+<div *ngIf="loading">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+<table *ngIf="(actorList$ | async) as actors">
+  <thead>
+  <tr>
+    <th>Last name</th>
+    <th>First name</th>
+    <th>Middle name</th>
+    <th>Rank</th>
+    <th>Experience</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let actor of actors" >
+    <td>{{ actor.last_name }}</td>
+    <td>{{ actor.first_name }}</td>
+    <td>{{ actor.middle_name }}</td>
+    <td>{{ actor.rank || '-' }}</td>
+    <td>{{ actor.experience || '-' }}</td>
+    <td class="td-button">
+      <button class="contacts-button" (click)="navigateToContracts(actor._id)">Contracts</button>
+      <button class="update-button" (click)="navigateToUpdate(actor._id)">Update</button>
+      <button class="delete-button" (click)="deleteActor(actor._id, actor.last_name, actor.first_name, actor.middle_name)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<mat-paginator
+  class="custom-paginator"
+  [length]="total"
+  [pageSize]="limit"
+  (page)="onPageChange($event)">
+</mat-paginator>
+
+
+
+

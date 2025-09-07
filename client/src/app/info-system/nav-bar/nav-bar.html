@@ -1,0 +1,8 @@
+<header>
+  <nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home Page</a>
+    <a *ngIf="authApi.isAdmin()" routerLink="/actors" routerLinkActive="active">Actor table</a>
+    <a *ngIf="isBrowser && authApi.isActor() && (actorId$ | async) as actorId" [routerLink]="['/actors', actorId, 'contracts']"  routerLinkActive="active">My Contracts</a>
+    <a *ngIf="authApi.getToken()" routerLink="/performances" routerLinkActive="active">Performance table</a>
+  </nav>
+</header>

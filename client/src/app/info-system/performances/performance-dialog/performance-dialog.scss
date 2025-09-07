@@ -1,0 +1,40 @@
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+
+  mat-error {
+    color: red;
+    font-size: small;
+    margin-top: 0;
+  }
+
+
+}
+
+mat-dialog-actions {
+  button {
+    padding: 10px 45px;
+    font-size: medium;
+    border: none;
+    color: white;
+    margin-right: 15px;
+    cursor: pointer;
+  }
+
+
+  .btn-create {
+    background-color: #04AA6D;
+  }
+  .btn-create:hover {
+    background-color: #049861;
+  }
+
+  .btn-close {
+    background-color: #3c5ee7;;
+  }
+  .btn-close:hover {
+    background-color: #0f3ae7;
+  }
+}
+

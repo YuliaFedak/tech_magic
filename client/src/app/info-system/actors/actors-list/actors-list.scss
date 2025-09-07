@@ -1,0 +1,100 @@
+
+.create-button {
+  width: 90%;
+  margin: 20px auto 0 auto;
+  text-align: right;
+  button {
+    background-color: #04AA6D;
+    border: 1px solid #ddd;
+    color: white;
+    font-family: sans-serif;
+    padding: 8px 20px;
+    font-size: medium;
+    font-weight: bold;
+  }
+  button:hover {
+    background-color: #049861;
+    cursor: pointer;
+  }
+}
+
+
+table {
+  border-collapse: collapse;
+  margin: 20px auto 0 auto;
+  width: 90%;
+  text-align: left;
+  font-family: sans-serif;
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  .td-button {
+
+
+    .contacts-button {
+      background-color: #3c5ee7;
+      color: white;
+      font-size: medium;
+      padding: 5px 20px 5px 20px;
+      border: 1px solid;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+    .contacts-button:hover {
+      background-color: #0f3ae7;
+    }
+
+    .update-button {
+      background-color: darkorange;
+      color: white;
+      font-size: medium;
+      padding: 5px 20px 5px 20px;
+      border: 1px solid;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+
+    .update-button:hover {
+      background-color: #db7800;;
+    }
+
+    .delete-button {
+      background-color: red;
+      color: white;
+      font-size: medium;
+      padding: 5px 20px 5px 20px;
+      border: 1px solid;
+      cursor: pointer;
+      margin-left: 20px;
+    }
+
+    .delete-button:hover {
+      background-color: #db0000;
+    }
+  }
+
+  tr:nth-child(odd) {background-color: #f2f2f2}
+  tr:hover {background-color: #ddd;}
+  th {
+    background-color: #3c5ee7;
+    color: white;
+    font-size: medium;
+  }
+}
+
+mat-paginator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  font-family: sans-serif;
+}
+
+::ng-deep .custom-snackbar {
+  background-color: green !important;
+  color: white;
+}
